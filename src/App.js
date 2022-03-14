@@ -1,12 +1,12 @@
-import { Home } from '../src/pages/Home'
 import { CartProvider } from './context/cart'
+import { Routes } from './router';
 import './styles.scss'
 
 export const App = () => {
   return (
     <>
       <CartProvider>
-        <Home />
+        <Routes />
       </CartProvider>
     </>
   );
