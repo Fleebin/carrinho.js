@@ -1,7 +1,48 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
 body {
     font-family: "Poppins", sans-serif;
     background-color: #d1d8e5;
     display: flex;
     justify-content: center;
     align-items: center;
+    .cart {
+        margin: 50px 0px;
+        background-color: #fff;
+        border-radius: 8px;
+        width: 500px;
+
+        text-align: center;
+        .header {
+            padding: 15px;
+            border-bottom: 1px solid #d3d3d3;
+            h1 {
+                font-size: 24px;
+            }
+        }
+        .total {
+            border-top: 1px solid #d3d3d3;
+            border-bottom: 1px solid #d3d3d3;
+
+            display: flex;
+            justify-content: space-between;
+
+            padding: 30px;
+            p {
+                font-size: 18px;
+                font-weight: 700;
+            }
+        }
+        .frete {
+            background-color: #c7ffa6;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 25px 50px;
+        }
+        .btn-primary {
+            margin: 15px 25px 25px 25px;
+        }
+    }
 }

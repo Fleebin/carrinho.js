@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useCart } from '../../context/cart'
 import { api } from '../../services/api'
+import { CartItem } from "../CartItem";
 
 export const ListAbaixo = () => {
     const { items, setItems } = useCart();
-
+    const totalPrice = items.reduce((acc, current) => acc + current.price, 0);
     useEffect(() => {
         api
             .get("/abaixo")
@@ -15,11 +16,17 @@ export const ListAbaixo = () => {
         <>
             <div className="listAbaixo">
                 {items.map((item) => {
-                    <div key={item.id}>
-                        <h1>{item.name}</h1>
-                        <h1>{item.imageUrl}</h1>
-                    </div>
+                    return (
+                        <CartItem key={item.id} name={item.name} price={item.price} sellingPrice={item.sellingPrice} imageUrl={item.imageUrl} />
+                    )
                 })}
+                <div className="total">
+                    <p>Total</p>
+                    <p>R$ {(totalPrice / 100).toFixed(2)}</p>
+                </div>
+                {totalPrice > 1000 && (
+                    <p className="frete">Parabéns, sua compra tem frete grátis!</p>
+                )}
             </div>
         </>
     );
