@@ -17,7 +17,6 @@ export const Cart = () => {
                     <p>Total</p>
                     <p>R$</p>
                 </div>
-                { }
                 <p className="frete">Parabéns, sua compra tem frete grátis!</p>
                 <Button className={"btn-primary"}>Finalizar compra</Button>
             </div>

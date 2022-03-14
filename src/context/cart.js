@@ -1,5 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
-import { api } from "../services/api";
+import React, { createContext, useState, useContext } from "react";
 
 const CartContext = createContext({});
 
@@ -7,27 +6,8 @@ export const CartProvider = ({ children }) => {
 
     const [items, setItems] = useState([]);
 
-    useEffect(() => {
-        api
-            .get("/acima")
-            .then((response) => {
-                setItems(response.data)
-            })
-    }, []);
-
-    const addItem = (title, image, price) => {
-        const itemObject = { title, image, price };
-        setItems([...items, itemObject]);
-    }
-    const removeItem = (itemIndex) => {
-        const filteredItems = items.filter(
-            (item) => items.indexOf(item) !== itemIndex
-        );
-        setItems(filteredItems);
-    }
-
     return (
-        <CartContext.Provider value={{ items, addItem, removeItem }}>
+        <CartContext.Provider value={{ items, setItems }}>
             {children}
         </CartContext.Provider>
     )
